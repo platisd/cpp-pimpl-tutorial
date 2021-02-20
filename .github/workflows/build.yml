@@ -1,0 +1,35 @@
+name: Build CI
+
+on: [push]
+
+jobs:
+
+  build-project:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        compiler:
+          - cc: gcc-10
+            cxx: g++-10
+          - cc: clang-11
+            cxx: clang++-11
+    env:
+      CC: ${{ matrix.compiler.cc }}
+      CXX: ${{ matrix.compiler.cxx }}
+      build_dir: build
+
+    steps:
+      - name: Fetch compiler
+        run: |
+          sudo apt-get install -y ${{ matrix.compiler.cc }}
+          sudo apt-get install -y ${{ matrix.compiler.cxx }}
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Create build directory
+        run: mkdir -p ${build_dir}
+      - name: Configure project
+        run: cd ${build_dir} && cmake ..
+      - name: Build project
+        run: cmake --build ${build_dir} -- -j$(nproc)
+      - name: Run unit tests
+        run: cd ${build_dir} && ctest
