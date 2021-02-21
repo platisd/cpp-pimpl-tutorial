@@ -57,7 +57,7 @@ We face the following issues:
 
 1. Any changes to the `Gyroscope` class implementation (or its dependencies) will
    require recompilation of software that depends/uses the `Gyroscope` class.
-2. Distributing the `Gyroscope` as a shared library will require you to not only distrute
+2. Distributing the `Gyroscope` as a shared library will require you to not only distribute
    `Gyroscope.h` but also `I2cCommunicationBus.h` and so on.
 3. If a Gyroscope variant is introduced and this should be transparent to the user, it may not be
    trivial to switch implementations during linking when details are leaked through the header file.
@@ -70,7 +70,7 @@ We face the following issues:
 
 One way to solve the problems outlined above is by applying the `pImpl` idiom. The key concept is to
 hide *all* implementation details and dependencies into `.cpp` files by **forward declaring** an
-implementation class and maintain a pointer to it as a member variable.
+"implementation" class and maintain a pointer to it as a member variable.
 
 ```cpp
 // Gyroscope.h
@@ -182,7 +182,7 @@ private:
 };
 ```
 
-This allows the `GyroscopeImpl` class to be considered as integration and `SpiGyroscope` to contain
+This allows the `GyroscopeImpl` class to be considered as the "integration scope" and `SpiGyroscope` to contain
 the core business logic that should be unit tested.
 
 ```cpp
