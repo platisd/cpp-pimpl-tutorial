@@ -1,4 +1,4 @@
-# C++ pImpl idiom tutorial
+# C++ pImpl idiom tutorial :movie_camera:
 
 The Pointer to Implementation (`pImpl`) idiom in C++ is one technique that allows you to hide implementation
 details from an interface.
@@ -15,6 +15,8 @@ Some practical benefits of `pImpl` are:
    been necessary to be included in the header file.
 3. Switch class implementations, transparently to the user of the class.<br>
    Determine which class to use during linking.
+
+This tutorial can also be found on [YouTube](https://youtu.be/lETcZQuKQBs).
 
 ## Code to refactor
 
