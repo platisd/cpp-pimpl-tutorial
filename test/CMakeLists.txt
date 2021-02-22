@@ -1,3 +1,4 @@
-# LifoQueue_test
-add_executable(dummy_test DummyTest.cpp)
-configure_test(dummy_test)
+add_executable(spi_gyroscope_test SpiGyroscopeTest.cpp)
+target_include_directories(spi_gyroscope_test PUBLIC mocks)
+target_link_libraries(spi_gyroscope_test spi_gyroscope)
+configure_test(spi_gyroscope_test)
