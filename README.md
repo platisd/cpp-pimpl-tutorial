@@ -6,6 +6,9 @@ details from an interface.
 Some practical benefits of `pImpl` are:
 1. Optimize compilation time<br>
    Changes in the implementation do not require components that depend on the interface to be recompiled.
+   This is very important when distributing precompiled libraries since your users' software will be
+   **binary compatible** with your different deliveries regardless of the changes you do as long as the
+   public interface is not modified.
 2. Hide implementation completely when distributing a precompiled library.<br>
    If you want to share your library without giving access to the source code, you typically distribute
    one or more header files that include the various *declarations* used during **compilation** along with
