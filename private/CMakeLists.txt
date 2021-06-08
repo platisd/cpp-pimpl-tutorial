@@ -18,3 +18,9 @@ target_link_libraries(spi_gyroscope_implementation
     spi_gyroscope
     PUBLIC
     gyroscope_interface)
+
+add_library(brittle_gyroscope SHARED
+    src/GyroscopeFactory.cpp
+    src/I2cBrittleGyroscope.cpp)
+target_include_directories(brittle_gyroscope PRIVATE include)
+target_link_libraries(brittle_gyroscope PUBLIC gyroscope_interface)

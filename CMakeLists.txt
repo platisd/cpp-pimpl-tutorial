@@ -40,4 +40,9 @@ target_link_libraries(spi_gyroscope_main
     PRIVATE
     spi_gyroscope_implementation)
 
+add_executable(brittle_gyroscope_main brittle_gyroscope_main.cpp)
+target_link_libraries(brittle_gyroscope_main
+    PRIVATE
+    brittle_gyroscope)
+
 add_subdirectory(test)
