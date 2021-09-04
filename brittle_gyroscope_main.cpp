@@ -6,7 +6,7 @@ int main()
 {
     GyroscopeFactory gyroscopeFactory;
 
-    auto gyroscope = gyroscopeFactory.get();
+    auto gyroscope = gyroscopeFactory.create();
     std::cout << gyroscope->getOrientation() << std::endl;
 
     return 0;

@@ -7,5 +7,5 @@
 class GyroscopeFactory
 {
 public:
-    std::unique_ptr<BrittleGyroscope> get();
+    std::unique_ptr<BrittleGyroscope> create();
 };
